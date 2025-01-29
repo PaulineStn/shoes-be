@@ -47,5 +47,6 @@ public class User {
     private List<Order> order;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Review> reviews;
 }

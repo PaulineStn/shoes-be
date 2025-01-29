@@ -1,5 +1,6 @@
 package shoes.pauline.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,10 +18,12 @@ public class OrderShoe {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
+    @JsonIgnore
     private Order order;
 
     @ManyToOne
     @JoinColumn(name = "shoe_id", nullable = false)
+    @JsonIgnore
     private Shoe shoe;
 
     @Column(nullable = false)

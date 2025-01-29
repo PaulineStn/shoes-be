@@ -39,5 +39,6 @@ public class Shoe {
     private java.time.LocalDateTime createdAt = java.time.LocalDateTime.now();
 
     @OneToMany(mappedBy = "shoe", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<OrderShoe> orderShoes;
 }

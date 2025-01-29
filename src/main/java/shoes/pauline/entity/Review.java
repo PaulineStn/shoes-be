@@ -1,5 +1,6 @@
 package shoes.pauline.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,10 +20,12 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "shoe_id", nullable = false)
+    @JsonIgnore
     private Shoe shoe;
 
     @Column(nullable = false)
