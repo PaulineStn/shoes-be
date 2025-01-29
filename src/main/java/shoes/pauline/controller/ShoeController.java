@@ -52,8 +52,4 @@ public class ShoeController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/latest")
-    public Shoe getLatestShoe() {
-        return shoeService.getLatestShoe();
-    }
 }

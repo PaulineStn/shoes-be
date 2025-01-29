@@ -23,7 +23,6 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore
     private User user;
 
     @Column(nullable = false)
@@ -37,6 +36,5 @@ public class Order {
     private String status = "pending";
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
     private List<OrderShoe> orderShoes;
 }

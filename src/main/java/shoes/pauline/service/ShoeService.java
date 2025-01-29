@@ -40,8 +40,4 @@ public class ShoeService {
         shoeRepository.deleteById(id);
     }
 
-    public Shoe getLatestShoe() {
-        return shoeRepository.findShoeWithMaxId();
-    }
-
 }

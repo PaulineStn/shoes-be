@@ -37,7 +37,6 @@ public class User {
 
     @NotBlank(message = "Password is required.")
     @Column(nullable = false, length = 255)
-    @JsonIgnore
     private String password;
 
     @Column(updatable = false)
@@ -48,6 +47,5 @@ public class User {
     private List<Order> order;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
     private List<Review> reviews;
 }
