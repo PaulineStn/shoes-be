@@ -20,7 +20,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8080") // Swagger UI origin
+                .allowedOrigins("http://localhost:8080/api/shoes") // Swagger UI origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);

@@ -36,6 +36,26 @@ public class ShoeService {
         }).orElseThrow(() -> new RuntimeException("Shoe not found with id " + id));
     }
 
+    public Shoe getLatestCreatedShoe() {
+        return shoeRepository.findLatestCreatedShoe();
+    }
+
+    public List<Shoe> getShoesSortedByPriceAsc() {
+        return shoeRepository.findAllByOrderByPriceAsc();
+    }
+
+    public List<Shoe> getShoesSortedByNameAsc() {
+        return shoeRepository.findAllByOrderByNameAsc();
+    }
+
+    public List<Shoe> getShoesSortedByPriceDesc() {
+        return shoeRepository.findAllByOrderByPriceDesc();
+    }
+
+    public List<Shoe> getShoesSortedByNameDesc() {
+        return shoeRepository.findAllByOrderByNameDesc();
+    }
+
     public void deleteShoe(Long id) {
         shoeRepository.deleteById(id);
     }

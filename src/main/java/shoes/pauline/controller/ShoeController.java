@@ -33,6 +33,39 @@ public class ShoeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/lastShoe")
+    @Operation(summary = "Get latest shoe", description = "Retrieve the latest shoe posted")
+    public ResponseEntity<Shoe> getLatestCreatedShoe() {
+        return ResponseEntity.ok(shoeService.getLatestCreatedShoe());
+    }
+
+    @GetMapping("/priceAsc")
+    @Operation(summary = "Sort the shoes by price asc", description = "")
+    public ResponseEntity<List<Shoe>> getShoesSortedByPriceAsc() {
+        return ResponseEntity.ok(shoeService.getShoesSortedByPriceAsc());
+    }
+
+
+    @GetMapping("/nameAsc")
+    @Operation(summary = "Sort the shoes by name asc", description = "")
+    public ResponseEntity<List<Shoe>> getShoesSortedByNameAsc() {
+        return ResponseEntity.ok(shoeService.getShoesSortedByNameAsc());
+    }
+
+
+    @GetMapping("/priceDesc")
+    @Operation(summary = "Sort the shoes by price Desc", description = "")
+    public ResponseEntity<List<Shoe>> getShoesSortedByPriceDesc() {
+        return ResponseEntity.ok(shoeService.getShoesSortedByPriceDesc());
+    }
+
+
+    @GetMapping("/nameDesc")
+    @Operation(summary = "Sort the shoes by name Desc", description = "")
+    public ResponseEntity<List<Shoe>> getShoesSortedByNameDesc() {
+        return ResponseEntity.ok(shoeService.getShoesSortedByNameDesc());
+    }
+
     @PostMapping
     @Operation(summary = "Create a new shoe", description = "Add a new shoe to the catalog.")
     public ResponseEntity<Shoe> createShoe(@Valid @RequestBody Shoe shoe) {

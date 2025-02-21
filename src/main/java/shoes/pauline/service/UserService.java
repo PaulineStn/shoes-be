@@ -32,4 +32,13 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    // Récupérer un utilisateur par son pseudo ou son email
+    public Optional<User> findByUsernameOrEmail(String identifier) {
+        Optional<User> user = userRepository.findByUsername(identifier);
+        if (user.isEmpty()) {
+            user = userRepository.findByEmail(identifier);
+        }
+        return user;
+    }
 }
